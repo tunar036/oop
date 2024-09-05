@@ -30,7 +30,8 @@ class Postgres implements Storage\DB
         $result = pg_query($this->conn, $sql);
 
         $res = new \Storage\DbResult($result);
-
+            // var_dump($res);
+            // die();
         return $res;
     }
 

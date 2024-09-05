@@ -21,15 +21,15 @@ class User
 
 class Book
 {
-    public $id;
+    // public $id;
+    public $user_id;
     public $name;
-    public $author;
 
-    public function __construct(int $id, string $name, User $author)
+    public function __construct(int $user_id, string $name)
     {
-        $this->id = $id;
+        // $this->id = $id;
+        $this->user_id = $user_id;
         $this->name = $name;
-        $this->author = $author;
     }
 }
 
@@ -50,13 +50,27 @@ class Service
         $this->storage->addUser($user);
     }
 
-    public function addBook(Book $book)
+    public function addBook(int $user_id, string $name)
     {
-        return $book;
+        $book = new Book($user_id, $name);
+        $this->storage->addBook($book);
     }
 
-    public function getUsers(bool $withBooks = false) {
+    public function getUsers(bool $withBooks = false)
+    {
+        if ($withBooks) {
+            return $this->storage->getUsers($withBooks);
+        }
         return $this->storage->getUsers();
     }
 
+    public function getBooks()
+    {
+        return $this->storage->getBooks();;
+    }
+
+    public function getUsersBooks(int $user_id)
+    {
+        return $this->storage->getUsersBooks($user_id);
+    }
 }

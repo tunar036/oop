@@ -30,8 +30,20 @@ class App {
     public function run() {
         // $user = new Service\User("Tuni");
 
-        // $this->service->addUser("Tunar", 30);
-        echo $this->service->getUsers();
+        // add user
+        // $this->service->addUser("Maga", 30);
+
+        // get users
+        // $this->service->getUsers(1);
+        
+        // add book 
+        // $this->service->addBook(9,"test kitab");
+
+        // get books
+        // $this->service->getBooks();
+
+        //get user's books
+        // $this->service->getUsersBooks(10);
     }
 }
 
